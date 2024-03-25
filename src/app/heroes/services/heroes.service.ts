@@ -8,6 +8,7 @@ import { error } from 'console';
 @Injectable({ providedIn: 'root' })
 export class HeroesService {
   private baseUrl: string = environment.baseUrl
+  private limite: number = 5;
   constructor(private httpClient: HttpClient) { }
 
   getHeroes(): Observable<Hero[]> {
@@ -19,5 +20,9 @@ export class HeroesService {
       .pipe(
         catchError(error => of(undefined))
       )
+  }
+
+  getSuggestion(query: string): Observable<Hero[]> {
+    return this.httpClient.get<Hero[]>(`/heroes?=${query}&limit=${this.limite}`);
   }
 }
