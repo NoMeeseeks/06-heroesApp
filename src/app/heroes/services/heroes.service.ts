@@ -25,4 +25,17 @@ export class HeroesService {
   getSuggestion(query: string): Observable<Hero[]> {
     return this.httpClient.get<Hero[]>(`${this.baseUrl}/heroes?=${query}&limit=${this.limite}`);
   }
+
+  addHero(hero: Hero): Observable<Hero> {
+    return this.httpClient.post<Hero>(`${this.baseUrl}/heroes`, hero)
+  }
+
+  updateHero(hero: Hero): Observable<Hero> {
+    if (!hero.id) throw Error("heroe es requerido")
+    return this.httpClient.patch<Hero>(`${this.baseUrl}/heroes${hero.id}`, hero)
+  }
+  deleteHero(hero: Hero): Observable<Hero> {
+    if (!hero.id) throw Error("heroe es requerido")
+    return this.httpClient.patch<Hero>(`${this.baseUrl}/heroes${hero.id}`, hero)
+  }
 }
