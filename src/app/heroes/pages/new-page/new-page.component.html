@@ -1,5 +1,5 @@
 <h1 class="text-6xl text-center">
-  {{currentHero.id ? 'editar' : 'agregar'}} heroe
+  {{currentHero.id ? 'Editar' : 'Agregar'}} heroe
 </h1>
 
 <mat-divider class="mb-2"></mat-divider>
@@ -34,8 +34,8 @@
           <mat-form-field class="col-12">
             <mat-label>Creador</mat-label>
             <mat-select required formControlName="publisher">
-              <mat-option *ngFor="let publish of publisher" [value]="publish.id">
-                {{publish.des}}
+              <mat-option *ngFor="let publish of publishers" [value]="publish.id">
+                {{ publish.desc }}
               </mat-option>
             </mat-select>
           </mat-form-field>

@@ -17,44 +17,22 @@
       "alt_img": "https://imgs.search.brave.com/7fNsanX1CrNTP1XKFNtvowgfyxrhRZHED2ytc_td0sY/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzAwLzA4/L2RkLzAwMDhkZDBk/MTcwMzM3OGQxMjNj/MzJjYzEyNTI4ZGE1/LmpwZw"
     },
     {
-      "id": "dc-superman",
-      "superhero": "Superman",
-      "publisher": "DC Comics",
-      "alter_ego": "Kal-El",
-      "first_appearance": "Action Comics #1",
-      "characters": "Kal-El"
-    },
-    {
-      "id": "dc-flash",
-      "superhero": "Flash",
-      "publisher": "DC Comics",
-      "alter_ego": "Jay Garrick",
-      "first_appearance": "Flash Comics #1",
-      "characters": "Jay Garrick, Barry Allen, Wally West, Bart Allen"
-    },
-    {
-      "id": "dc-green",
-      "superhero": "Green Lantern",
-      "publisher": "DC Comics",
-      "alter_ego": "Alan Scott",
-      "first_appearance": "All-American Comics #16",
-      "characters": "Alan Scott, Hal Jordan, Guy Gardner, John Stewart, Kyle Raynor, Jade, Sinestro, Simon Baz"
-    },
-    {
       "id": "dc-arrow",
       "superhero": "Green Arrow",
-      "publisher": "DC Comics",
+      "publisher": "Dc Comics",
       "alter_ego": "Oliver Queen",
       "first_appearance": "More Fun Comics #73",
-      "characters": "Oliver Queen"
+      "characters": "Oliver Queen",
+      "alt_img": null
     },
     {
       "id": "dc-wonder",
       "superhero": "Wonder Woman",
-      "publisher": "DC Comics",
+      "publisher": "Dc Comics",
       "alter_ego": "Princess Diana",
       "first_appearance": "All Star Comics #8",
-      "characters": "Princess Diana"
+      "characters": "Princess Diana",
+      "alt_img": null
     },
     {
       "id": "dc-martian",
@@ -90,11 +68,12 @@
     },
     {
       "id": "marvel-spider",
-      "superhero": "Spider Man",
+      "superhero": "Man Spider",
       "publisher": "Marvel Comics",
       "alter_ego": "Peter Parker",
       "first_appearance": "Amazing Fantasy #15",
-      "characters": "Peter Parker"
+      "characters": "Parker Peter",
+      "alt_img": null
     },
     {
       "id": "marvel-captain",

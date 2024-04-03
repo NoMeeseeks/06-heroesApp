@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Hero, Publisher } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { filter, switchMap, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { error } from 'console';
@@ -26,12 +26,12 @@ export class NewPageComponent implements OnInit {
     alt_img: new FormControl(''),
   })
 
-  public publisher =
+  public publishers =
     [
       {
-        id: 'Dc Comics', des: 'DC - Comics'
+        id: 'Dc Comics', desc: 'DC - Comics'
       }, {
-        id: 'Marvel Comics', des: 'Marvel - Comics'
+        id: 'Marvel Comics', desc: 'Marvel - Comics'
       }
     ]
 
@@ -67,10 +67,26 @@ export class NewPageComponent implements OnInit {
       data: this.heroForm.value,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result)
-    });
+    dialogRef.afterClosed()
+      .pipe(
+        filter((result: boolean) => result),
+        switchMap(() => this.heroesService.deleteHeroPorId(this.currentHero.id)),
+        filter((wasDeleted: boolean) => wasDeleted)
+      )
+      .subscribe(() => {
+        this.router.navigate(['/heroes'])
+      });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   if (!result) { return };
+
+    //   this.heroesService.deleteHeroPorId(this.currentHero.id)
+    //     .subscribe(wasDeleted => {
+    //       if (wasDeleted) {
+    //         this.router.navigate(['/heroes'])
+    //       }
+    //     });
+    // });
   }
 
   onSubmit(): void {

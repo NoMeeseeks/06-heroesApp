@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of } from 'rxjs';
 import { Hero } from '../interfaces/hero.interface';
 import { environment } from '../../../environments/environments';
-import { error } from 'console';
 
 @Injectable({ providedIn: 'root' })
 export class HeroesService {
@@ -23,7 +22,7 @@ export class HeroesService {
   }
 
   getSuggestion(query: string): Observable<Hero[]> {
-    return this.httpClient.get<Hero[]>(`${this.baseUrl}/heroes?q=${query}&_limit=${this.limite}`);
+    return this.httpClient.get<Hero[]>(`${this.baseUrl}/heroes?q=${query}&_limit=6`);
   }
 
   addHero(hero: Hero): Observable<Hero> {
@@ -32,14 +31,14 @@ export class HeroesService {
 
   updateHeroPorId(hero: Hero): Observable<Hero> {
     if (!hero.id) throw Error("heroe es requerido")
-    return this.httpClient.patch<Hero>(`${this.baseUrl}/heroes${hero.id}`, hero)
+    return this.httpClient.patch<Hero>(`${this.baseUrl}/heroes/${hero.id}`, hero)
   }
 
-  deleteHeroPorId(hero: Hero): Observable<boolean> {
-    return this.httpClient.delete(`${this.baseUrl}/heroes${hero.id}`)
+  deleteHeroPorId(id: string): Observable<boolean> {
+    return this.httpClient.delete(`${this.baseUrl}/heroes/${id}`)
       .pipe(
+        map(respuesta => true),
         catchError(error => of(false)),
-        map(respuesta => true)
       )
   }
 }
